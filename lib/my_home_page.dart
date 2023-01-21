@@ -1,4 +1,3 @@
-import 'package:codigo4_bmi/widgets/custom_card.dart';
 import 'package:codigo4_bmi/widgets/selector_card.dart';
 import 'package:codigo4_bmi/widgets/slider_card.dart';
 import 'package:flutter/material.dart';
@@ -18,19 +17,31 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       body: Column(
-        children: const [
-          SelectorCard(),
-          SliderCard(
+        children: [
+          const SelectorCard(),
+          const SliderCard(
             title: 'Peso (kg)',
             min: 20,
             max: 120,
             initialValue: 40,
           ),
-          SliderCard(
+          const SliderCard(
             title: 'Altura (cm)',
             min: 140,
             max: 210,
             initialValue: 170,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(40),
+              ),
+              onPressed: () {
+                print("Calcular BMI");
+              },
+              child: const Text("Calcular BMI"),
+            ),
           ),
         ],
       ),

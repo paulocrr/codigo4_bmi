@@ -16,41 +16,58 @@ class _SelectorCardState extends State<SelectorCard> {
     return Row(
       children: [
         Expanded(
-          child: CustomCard(
-            backgroundColor: _isSelected ? Colors.blue : Colors.white,
-            borderColor: _isSelected ? Colors.black : Colors.grey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("images/male.png"),
-                Text(
-                  "Hombre",
-                  style: _isSelected
-                      ? const TextStyle(fontWeight: FontWeight.bold)
-                      : const TextStyle(fontWeight: FontWeight.normal),
-                ),
-              ],
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _isSelected = true;
+              });
+            },
+            child: CustomCard(
+              backgroundColor: _isSelected ? Colors.blue : Colors.white,
+              borderColor: _isSelected ? Colors.black : Colors.grey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("images/male.png"),
+                  Text(
+                    "Hombre",
+                    style: _isSelected
+                        ? const TextStyle(fontWeight: FontWeight.bold)
+                        : const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.grey,
+                          ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
         Expanded(
-          child: CustomCard(
-            backgroundColor: !_isSelected ? Colors.blue : Colors.white,
-            borderColor: !_isSelected ? Colors.black : Colors.grey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("images/female.png"),
-                Text(
-                  "Mujer",
-                  style: !_isSelected
-                      ? const TextStyle(fontWeight: FontWeight.bold)
-                      : const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.grey,
-                        ),
-                ),
-              ],
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _isSelected = false;
+              });
+            },
+            child: CustomCard(
+              backgroundColor: !_isSelected ? Colors.blue : Colors.white,
+              borderColor: !_isSelected ? Colors.black : Colors.grey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("images/female.png"),
+                  Text(
+                    "Mujer",
+                    style: !_isSelected
+                        ? const TextStyle(fontWeight: FontWeight.bold)
+                        : const TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.grey,
+                          ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
