@@ -3,7 +3,8 @@ import 'package:codigo4_bmi/widgets/image_card.dart';
 import 'package:flutter/material.dart';
 
 class SelectorCard extends StatefulWidget {
-  const SelectorCard({super.key});
+  final Function(String val)? onChange;
+  const SelectorCard({super.key, this.onChange});
 
   @override
   State<SelectorCard> createState() => _SelectorCardState();
@@ -25,6 +26,9 @@ class _SelectorCardState extends State<SelectorCard> {
               setState(() {
                 _isSelected = true;
               });
+              if (widget.onChange != null) {
+                widget.onChange!("Hombre");
+              }
             },
           ),
         ),
@@ -36,6 +40,9 @@ class _SelectorCardState extends State<SelectorCard> {
               onPressed: () {
                 setState(() {
                   _isSelected = false;
+                  if (widget.onChange != null) {
+                    widget.onChange!("Mujer");
+                  }
                 });
               }),
         ),
