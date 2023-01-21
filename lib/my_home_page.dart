@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:codigo4_bmi/widgets/selector_card.dart';
+import 'package:codigo4_bmi/widgets/show_message.dart';
 import 'package:codigo4_bmi/widgets/slider_card.dart';
 import 'package:flutter/material.dart';
 
@@ -73,9 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Su indice de masa es ${result.round()}",
-                  style: const TextStyle(fontSize: 24),
+                child: Column(
+                  children: [
+                    Text(
+                      "Su indice de masa es ${result.round()}",
+                      style: const TextStyle(fontSize: 24),
+                    ),
+                    ShowMessage(result: result),
+                  ],
                 ),
               ),
             ),
