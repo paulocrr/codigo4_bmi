@@ -6,6 +6,7 @@ class SliderCard extends StatefulWidget {
   final double min;
   final double max;
   final double initialValue;
+  final Function(double val)? onChange;
 
   const SliderCard({
     super.key,
@@ -13,6 +14,7 @@ class SliderCard extends StatefulWidget {
     required this.min,
     required this.max,
     required this.initialValue,
+    this.onChange,
   });
 
   @override
@@ -52,6 +54,10 @@ class _SliderCardState extends State<SliderCard> {
                 setState(() {
                   currentValue = value;
                 });
+
+                if (widget.onChange != null) {
+                  widget.onChange!(currentValue);
+                }
               },
             ),
           ],
