@@ -1,4 +1,3 @@
-import 'package:codigo4_bmi/widgets/custom_card.dart';
 import 'package:codigo4_bmi/widgets/image_card.dart';
 import 'package:flutter/material.dart';
 
