@@ -25,12 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF091032),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF091032),
         title: const Text(
           'Calculadora BMI',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: Column(
@@ -59,6 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(40),
+                backgroundColor: Color(0xFFFF0067),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
               onPressed: () {
                 setState(() {
@@ -66,25 +72,40 @@ class _MyHomePageState extends State<MyHomePage> {
                   showResult = true;
                 });
               },
-              child: const Text("Calcular BMI"),
-            ),
-          ),
-          Visibility(
-            visible: showResult,
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      "Su indice de masa es ${result.round()}",
-                      style: const TextStyle(fontSize: 24),
-                    ),
-                    ShowMessage(result: result),
-                  ],
+              child: const Text(
+                "Calcular BMI",
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               ),
             ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Visibility(
+                  visible: showResult,
+                  child: Card(
+                    color: Color(0xFF14193B),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Su indice de masa es ${result.round()}",
+                            style: const TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
+                            ),
+                          ),
+                          ShowMessage(result: result),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -20,8 +20,8 @@ class ImageCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: CustomCard(
-        backgroundColor: isSelected ? Colors.blue : Colors.white,
-        borderColor: isSelected ? Colors.black : Colors.grey,
+        backgroundColor: isSelected ? Color(0xFFFF0067) : Color(0xFF14193B),
+        borderColor: isSelected ? Color(0xFFFF0067) : Colors.transparent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -32,7 +32,7 @@ class ImageCard extends StatelessWidget {
                   ? const TextStyle(fontWeight: FontWeight.bold)
                   : const TextStyle(
                       fontWeight: FontWeight.normal,
-                      color: Colors.grey,
+                      color: Colors.white,
                     ),
             ),
           ],

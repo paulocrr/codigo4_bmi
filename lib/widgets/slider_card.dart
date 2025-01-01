@@ -34,22 +34,32 @@ class _SliderCardState extends State<SliderCard> {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      borderColor: Colors.transparent,
+      backgroundColor: Color(0xFF14193B),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Text(
               widget.title,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
             ),
             Text(
               '${currentValue.round()}',
-              style: const TextStyle(fontSize: 32),
+              style: const TextStyle(
+                fontSize: 32,
+                color: Colors.white,
+              ),
             ),
             Slider(
               min: widget.min,
               max: widget.max,
               value: currentValue,
+              activeColor: Colors.white,
+              thumbColor: Color(0xFFFF0067),
               onChanged: (value) {
                 setState(() {
                   currentValue = value;
